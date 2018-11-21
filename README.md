@@ -34,6 +34,8 @@ for article in crawler.crawl_user_questions('uehara1414test', limit=20):
 for user in crawler.crawl_random_users():
     for article in crawler.crawl_user_questions(user):
         print(user, article.question, " => ", article.answer)
+
+driver.quit()
 ```
 
 ## Test

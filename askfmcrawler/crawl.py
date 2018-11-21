@@ -35,8 +35,6 @@ class Crawler:
 
             articles.append(Article(article_id, user, question, answer))
 
-        self.driver.quit()
-
         return articles
 
     def crawl_random_users(self):
@@ -44,5 +42,4 @@ class Crawler:
         self.driver.get(url)
         faces = self.driver.find_element_by_css_selector('.faces')
         users = [face.text for face in faces.find_elements_by_tag_name('a')]
-        self.driver.quit()
         return users

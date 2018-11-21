@@ -46,6 +46,9 @@ class CrawlerTest(unittest.TestCase):
         ]
         self.driver = webdriver.Chrome('./chromedriver')
 
+    def tearDown(self):
+        self.driver.quit()
+
     def test_crawl(self):
         crawler = Crawler(self.driver)
         articles = crawler.crawl_user_questions('uehara1414test')
