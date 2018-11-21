@@ -43,4 +43,6 @@ class Crawler:
         url = "https://ask.fm/"
         self.driver.get(url)
         faces = self.driver.find_element_by_css_selector('.faces')
-        return [face.text for face in faces.find_elements_by_tag_name('a')]
+        users = [face.text for face in faces.find_elements_by_tag_name('a')]
+        self.driver.quit()
+        return users
