@@ -1,5 +1,6 @@
 import time
 from askfmcrawler.entities import User, Article
+from selenium.common.exceptions import NoSuchElementException
 
 
 class Crawler:
@@ -31,7 +32,11 @@ class Crawler:
         for article in self.driver.find_elements_by_tag_name('article'):
             article_id = article.find_element_by_css_selector('.streamItem_meta').get_attribute('href').split('/')[-1]
             question = article.find_element_by_tag_name('h2').text
-            answer = article.find_element_by_css_selector('.streamItem_content').text
+            try:
+                answer = article.find_element_by_css_selector('.streamItem_content').text
+            except NoSuchElementException:
+                # Image only
+                answer = ''
 
             articles.append(Article(article_id, user, question, answer))
 
