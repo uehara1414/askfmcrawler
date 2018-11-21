@@ -16,7 +16,7 @@ pipenv install askfmcrawler
 ```python
 from selenium import webdriver
 
-from askfmcrawler.crawl import Crawler
+from askfmcrawler import Crawler
 
 driver = webdriver.Chrome('./chromedriver')
 
