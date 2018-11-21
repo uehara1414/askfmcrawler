@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(name='askfmcrawler',
-      version='0.1.1',
+      version='0.1.2',
       description='Python askfm crawler.',
       author='uehara1414',
       author_email='akiya.noface@gmail.com',
